@@ -1,4 +1,4 @@
-import { Avatar,Dropdown } from 'antd';
+import { Avatar,Dropdown, Icon } from 'antd';
 import {Menu} from 'antd';
 import React, { Component } from 'react';
 /**
@@ -16,7 +16,7 @@ export default class User extends Component {
                 <a href="http://www.taobao.com/">2nd menu item</a>
               </Menu.Item>
               <Menu.Divider />
-              <Menu.Item key="3">退出</Menu.Item>
+              <Menu.Item key="3"  ><Icon type="logout"/> 退出</Menu.Item>
             </Menu>
           );
         return (
