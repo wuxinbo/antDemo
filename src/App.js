@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Layout, Breadcrumb } from 'antd';
 import { Provider } from 'react-redux'
 import { StateStore} from './component/redux/Redux'
-import Header from './component/Header'
+import Header from './component/header/Header'
 import SlideMenu from './component/SlideMenu'
 import { CRoute } from './component/router/route'
 import 'antd/dist/antd.less';

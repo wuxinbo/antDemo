@@ -1,8 +1,9 @@
 
 import { Layout, Menu, Row, Col } from 'antd';
 import React, { Component } from 'react';
-import menu from './menu/Menu'
-import { StateStore, MENU_ACTION_TYPE} from './redux/Redux'
+import menu from '../menu/Menu'
+import User from './User'
+import { StateStore, MENU_ACTION_TYPE} from '../redux/Redux'
 const { Header } = Layout;
 
 class CHeader extends Component {
@@ -30,6 +31,7 @@ class CHeader extends Component {
                             onSelect ={() => console.log('select item')}
                             style={{
                                 lineHeight: '64px', color: '#fff',
+                                width: '500px',
                                 background: "#00796a"
                             }}
                         >
@@ -44,8 +46,9 @@ class CHeader extends Component {
                             }
                         </Menu>
                     </Col>
+                    {/* 头像 */}
                     <Col span={2}>
-                            hhih
+                            <User />
                     </Col>
                 </Row>
             </Header>
