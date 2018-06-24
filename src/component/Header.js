@@ -1,34 +1,53 @@
 
 import { Layout, Menu, Row, Col } from 'antd';
 import React, { Component } from 'react';
+import menu from './menu/Menu'
+import { StateStore, MENU_ACTION_TYPE} from './redux/Redux'
 const { Header } = Layout;
-//custome header
+
 class CHeader extends Component {
+    constructor(props) {
+        super(props)
+        this.state = { sliderMenu: null }
+    }
+    componentDidMount(){
+
+    }
+    handleMenuClick(item) {
+        StateStore.dispatch({ type: MENU_ACTION_TYPE, menu: item })
+    }
     render() {
         return (
             <Header className="header" style={{ background: "#00796a" }}>
-                <Row gutter={12}>
+                <Row gutter={24}>
                     <Col span={3}>
                         <div className="logo" />
                     </Col>
-                    <Col span={9}>
+                    <Col span={19}>
                         <Menu
-                            // theme="dark"
                             mode="horizontal"
-                            defaultSelectedKeys={['1']}
-                            style={{ lineHeight: '64px',color:'#fff',
-                            background: "#00796a"  }}
+                            defaultSelectedKeys={[menu[0].key]}
+                            onSelect ={() => console.log('select item')}
+                            style={{
+                                lineHeight: '64px', color: '#fff',
+                                background: "#00796a"
+                            }}
                         >
-                            <Menu.Item key="1">入库</Menu.Item>
-                            <Menu.Item key="2">出库</Menu.Item>
-                            <Menu.Item key="3">系统管理</Menu.Item>
-                            <Menu.Item key="4">数据统计</Menu.Item>
-                            <Menu.Item key="5">导入导出</Menu.Item>
+                            {
+                                menu.map(item => {
+                                    return (
+                                        <Menu.Item key={item.key}  onClick={() => this.handleMenuClick(item)}>
+                                            {item.name}
+                                        </Menu.Item>)
+                                })
+
+                            }
                         </Menu>
                     </Col>
+                    <Col span={2}>
+                            hhih
+                    </Col>
                 </Row>
-
-
             </Header>
         )
     }
