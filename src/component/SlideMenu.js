@@ -1,8 +1,7 @@
 
 import { Layout, Menu, Icon } from 'antd';
 import React, { Component } from 'react';
-import menu from './menu/Menu'
-import { StateStore} from './redux/Redux'
+import { connect } from 'dva';
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -13,19 +12,11 @@ class SlideMenu extends Component {
         super(props)
         //加载菜单
         this.CsubMenu = this.CsubMenu.bind(this)
-        this.state = {
-            menu: menu[0]
-        }
-    }
-    componentDidMount(){
-        StateStore.subscribe(() => {
-            this.setState({ menu: StateStore.getState() })
-        }
-        )
+
     }
     //自定义菜单，根据配置文件生成菜单
     CsubMenu() {
-        const menu = this.state.menu
+        const menu = this.props.menu
         const Cmenu = <Menu
             mode="inline"
             style={{ height: '100%', borderRight: 0 }}
@@ -42,7 +33,7 @@ class SlideMenu extends Component {
             }
 
         </Menu>
-        return this.state.menu != null ? Cmenu : null;
+        return this.props.menu != null ? Cmenu : null;
     }
     render() {
         const menu = <Sider width={200} style={{ background: '#00796a' }}>
@@ -51,4 +42,4 @@ class SlideMenu extends Component {
         return menu;
     }
 }
-export default SlideMenu
+export default connect(({menu})=> ({menu})) (SlideMenu)

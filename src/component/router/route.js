@@ -1,10 +1,9 @@
 
 import React, { Component } from 'react';
 import { Router, Switch, Route } from 'react-router-dom'
-import { statis } from '../statics/Content'
-import { screen } from '../screen/Content'
 import createBrowserHistory from 'history/createBrowserHistory'
 import BasicLayout from '../../layout/BasicLayout'
+import menu from '../menu/Menu'
 const history = createBrowserHistory()
 
 /**
@@ -16,7 +15,6 @@ class CRoute extends Component {
             <Router history={history}>
                 <Switch>
                     <Route exact path="/" component={BasicLayout} />
-                    <Route path="/screen" component={BasicLayout} />
                 </Switch>
             </Router>
         )
@@ -31,8 +29,11 @@ class SubRoute extends Component {
         return (
             <Router history={history}>
                 <Switch>
-                    <Route exact path="/" component={statis} />
-                    <Route path="/screen" component={screen} />
+                    {
+                        menu[0].children.map(item =>
+                            <Route  key={item.key}exact path={item.path} component={item.component} />
+                        )
+                    }
                 </Switch>
             </Router>
         )

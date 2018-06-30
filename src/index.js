@@ -1,7 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import dva from 'dva'
+import menu from './module/Menu'
 import { CRoute } from './component/router/route'
 import registerServiceWorker from './registerServiceWorker';
 const AppDiv = (
@@ -10,6 +11,9 @@ const AppDiv = (
             <App/>
         </CRoute>
     </div>    
-)
-ReactDOM.render(AppDiv, document.getElementById('root'));
+)   
+const app = dva()
+app.model(menu)
+app.router(()=>AppDiv)
+app.start("#root")
 registerServiceWorker();

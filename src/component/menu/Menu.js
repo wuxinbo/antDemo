@@ -1,5 +1,7 @@
 
 import { history } from '../router/route'
+import {statis} from '../statics/Content'
+import {screen} from '../screen/Content'
 const menu =
     [
         {
@@ -7,14 +9,16 @@ const menu =
             name: "入库",
             order: 1,
             click: function () { },
+            path:"/",
             children: [
                 {
                     key: "statics",
                     name: "统计信息",
-                    url: "",
+                    path: "/index",
+                    component: statis,
                     icon: "area-chart",
-                    click: function () {
-                        history.push("/")
+                    click: function ({ key, domEvent }) {
+                        history.push(this.path)
                     },
                     children: [
                     ]
@@ -22,11 +26,11 @@ const menu =
                 {
                     key: "screen",
                     name: "大屏幕",
-                    url: "desktop",
+                    path: "/screen",
+                    component: screen,
                     icon: "desktop",
                     click: function () {
-                        console.log("click")
-                        history.push("/screen")
+                        history.push(this.path)
                     },
                     children: []
                 }
@@ -37,6 +41,7 @@ const menu =
             key: "out",
             name: "出库",
             order: 2,
+            path: "",
             children :[
                 {
                     key: "subOut",
@@ -52,6 +57,7 @@ const menu =
             key:"systemManage",
             name:"系统管理",
             order: 3,
+            path: '',
              children :[
                 {
                     key: "userManage",
@@ -62,13 +68,12 @@ const menu =
                     children:[]
                 }
             ]
-           
-
         },
         {
             key:"statictis",
             name:"统计",
             order: 4,
+            path: '',
             children :[
                 {
                     key: "statictis",

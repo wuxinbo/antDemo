@@ -3,19 +3,18 @@ import { Layout, Menu, Row, Col } from 'antd';
 import React, { Component } from 'react';
 import menu from '../menu/Menu'
 import User from './User'
-import { StateStore, MENU_ACTION_TYPE} from '../redux/Redux'
+import { connect } from 'dva';
 const { Header } = Layout;
 
 class CHeader extends Component {
     constructor(props) {
         super(props)
-        this.state = { sliderMenu: null }
     }
     componentDidMount(){
 
     }
     handleMenuClick(item) {
-        StateStore.dispatch({ type: MENU_ACTION_TYPE, menu: item })
+        this.props.dispatch({type:"menu/firstMenuClick",menu:item})
     }
     render() {
         return (
@@ -28,7 +27,6 @@ class CHeader extends Component {
                         <Menu
                             mode="horizontal"
                             defaultSelectedKeys={[menu[0].key]}
-                            onSelect ={() => console.log('select item')}
                             style={{
                                 lineHeight: '64px', color: '#fff',
                                 width: '500px',
@@ -55,4 +53,4 @@ class CHeader extends Component {
         )
     }
 }
-export default CHeader
+export default connect ()(CHeader)
