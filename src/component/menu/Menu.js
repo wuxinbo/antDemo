@@ -1,5 +1,3 @@
-
-import { history } from '../router/route'
 import {statis} from '../statics/Content'
 import {screen} from '../screen/Content'
 const menu =
@@ -17,9 +15,6 @@ const menu =
                     path: "/index",
                     component: statis,
                     icon: "area-chart",
-                    click: function ({ key, domEvent }) {
-                        history.push(this.path)
-                    },
                     children: [
                     ]
                 },
@@ -29,9 +24,6 @@ const menu =
                     path: "/screen",
                     component: screen,
                     icon: "desktop",
-                    click: function () {
-                        history.push(this.path)
-                    },
                     children: []
                 }
 

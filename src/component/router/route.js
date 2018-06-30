@@ -15,6 +15,9 @@ class CRoute extends Component {
             <Router history={history}>
                 <Switch>
                     <Route exact path="/" component={BasicLayout} />
+                    <Route exact path="/index" component={BasicLayout} />
+                    <Route exact path="/screen" component={BasicLayout} />
+
                 </Switch>
             </Router>
         )
