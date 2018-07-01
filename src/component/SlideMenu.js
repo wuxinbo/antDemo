@@ -29,8 +29,8 @@ class SlideMenu extends Component {
                     return (
                         <SubMenu key={item.key} title={<span><Icon type={item.icon} />{item.name}</span>} 
                             onTitleClick={()=>{
-                                history.push(item.path)
-                                // this.props.dispatch({type:"menu/secondMenuClick",path:item.path})
+                                console.log("jump to"+menu.path+item.path)
+                                history.push(menu.path+item.path)
                             }}
                             >
                             {items}

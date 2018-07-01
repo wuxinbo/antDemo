@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import menu from '../menu/Menu'
 import User from './User'
 import { connect } from 'dva';
+import { history } from '../router/route';
 const { Header } = Layout;
 
 class CHeader extends Component {
@@ -15,6 +16,8 @@ class CHeader extends Component {
     }
     handleMenuClick(item) {
         this.props.dispatch({type:"menu/firstMenuClick",menu:item})
+        console.log("item.path "+item.path)
+        history.push(item.path+item.children[0].path)
     }
     render() {
         return (
@@ -26,7 +29,7 @@ class CHeader extends Component {
                     <Col span={19}>
                         <Menu
                             mode="horizontal"
-                            defaultSelectedKeys={[menu[0].key]}
+                            // defaultSelectedKeys={[menu[0].key]}
                             style={{
                                 lineHeight: '64px', color: '#fff',
                                 width: '500px',

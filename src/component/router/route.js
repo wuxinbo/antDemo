@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Router, Switch, Route } from 'react-router-dom'
+import { Router, Switch, Route, Redirect } from 'dva/router'
 import createBrowserHistory from 'history/createBrowserHistory'
 import BasicLayout from '../../layout/BasicLayout'
 import menu from '../menu/Menu'
@@ -14,10 +14,11 @@ class CRoute extends Component {
         return (
             <Router history={history}>
                 <Switch>
-                    <Route exact path="/" component={BasicLayout} />
-                    <Route exact path="/index" component={BasicLayout} />
-                    <Route exact path="/screen" component={BasicLayout} />
-
+                    {
+                        menu.map(item =><Route key={item.key}  path={item.path} component={BasicLayout} />)
+                    }
+                    
+                    {/* <Redirect from="/" to={menu[0].path} /> */}
                 </Switch>
             </Router>
         )
@@ -32,11 +33,18 @@ class SubRoute extends Component {
         return (
             <Router history={history}>
                 <Switch>
-                    {
-                        menu[0].children.map(item =>
-                            <Route  key={item.key}exact path={item.path} component={item.component} />
+                    {   menu.map (parent =>{
+                        console.log("routepath is "+parent.path)
+                        return parent.children.map(item =>{
+                            // console.log("fullpath is "+)    
+                            return <Route  key={item.key} exact path={parent.path+item.path} component={item.component} />
+                        }
                         )
+                    })
+                        
+
                     }
+                    {/* <Redirect from="/" to="index" /> */}
                 </Switch>
             </Router>
         )
