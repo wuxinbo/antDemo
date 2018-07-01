@@ -19,6 +19,7 @@ class SlideMenu extends Component {
     //自定义菜单，根据配置文件生成菜单
     CsubMenu() {
         const menu = this.props.menu
+        console.log("props.menu is "+menu)
         const Cmenu = <Menu
             mode="inline"
             style={{ height: '100%', borderRight: 0 }}
@@ -29,8 +30,8 @@ class SlideMenu extends Component {
                     return (
                         <SubMenu key={item.key} title={<span><Icon type={item.icon} />{item.name}</span>} 
                             onTitleClick={()=>{
-                                console.log("jump to"+menu.path+item.path)
                                 history.push(menu.path+item.path)
+                                this.props.dispatch({type:"menu/breadcrumb",parentPath:menu.name,currentPath:item.name})
                             }}
                             >
                             {items}

@@ -5,6 +5,7 @@ import menu from '../menu/Menu'
 import User from './User'
 import { connect } from 'dva';
 import { history } from '../router/route';
+import Notice from './Notice';
 const { Header } = Layout;
 
 class CHeader extends Component {
@@ -16,7 +17,7 @@ class CHeader extends Component {
     }
     handleMenuClick(item) {
         this.props.dispatch({type:"menu/firstMenuClick",menu:item})
-        console.log("item.path "+item.path)
+        // console.log("item.path "+item.path)
         history.push(item.path+item.children[0].path)
     }
     render() {
@@ -26,10 +27,10 @@ class CHeader extends Component {
                     <Col span={3}>
                         <div className="logo" />
                     </Col>
-                    <Col span={19}>
+                    <Col span={17}>
                         <Menu
                             mode="horizontal"
-                            // defaultSelectedKeys={[menu[0].key]}
+                            defaultSelectedKeys={[menu[0].key]}
                             style={{
                                 lineHeight: '64px', color: '#fff',
                                 width: '500px',
@@ -48,8 +49,12 @@ class CHeader extends Component {
                         </Menu>
                     </Col>
                     {/* 头像 */}
-                    <Col span={2}>
+                    <Col span={4}>
+                    {/* 站内信 */}
+                        <div>
+                            {/* <Notice /> */}
                             <User />
+                        </div>    
                     </Col>
                 </Row>
             </Header>

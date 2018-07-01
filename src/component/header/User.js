@@ -22,7 +22,7 @@ export default class User extends Component {
             </Menu>
         );
         return (
-            <Dropdown overlay={menu} trigger={['click']}>
+            <Dropdown overlay={menu} trigger={['hover']}>
                 <div style={{ cursor: 'pointer', textAlign: 'right' }}>
                     <Avatar src="https://tva1.sinaimg.cn/crop.13.111.413.413.180/e4da5133gw1e9f3wueh7wj20dy0imn05.jpg" size="small" />
                     <span style={{ marginLeft: '10px', color: '#fff' }}>xbwuc </span>

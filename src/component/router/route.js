@@ -17,8 +17,7 @@ class CRoute extends Component {
                     {
                         menu.map(item =><Route key={item.key}  path={item.path} component={BasicLayout} />)
                     }
-                    
-                    {/* <Redirect from="/" to={menu[0].path} /> */}
+                    <Redirect from ="/" to={menu[0].path} />
                 </Switch>
             </Router>
         )
@@ -34,17 +33,13 @@ class SubRoute extends Component {
             <Router history={history}>
                 <Switch>
                     {   menu.map (parent =>{
-                        console.log("routepath is "+parent.path)
+                        // console.log("routepath is "+ {... parent.children})
                         return parent.children.map(item =>{
-                            // console.log("fullpath is "+)    
                             return <Route  key={item.key} exact path={parent.path+item.path} component={item.component} />
                         }
                         )
                     })
-                        
-
                     }
-                    {/* <Redirect from="/" to="index" /> */}
                 </Switch>
             </Router>
         )
