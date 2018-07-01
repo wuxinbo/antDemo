@@ -1,0 +1,14 @@
+.mail:hover,.user:hover{
+    background-color: #e6f7ff
+}
+.mail{
+    font-size: 16pt;
+    padding: 0 12px;
+    display: inline-block;
+}
+.user{
+    display: inline-block;
+    cursor: pointer;
+    padding:0 12px;
+    text-align: center
+}

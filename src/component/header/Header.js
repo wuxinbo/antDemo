@@ -22,19 +22,21 @@ class CHeader extends Component {
     }
     render() {
         return (
-            <Header className="header" style={{ background: "#00796a" }}>
+            <Header className="header" style={{background:'#fff'}}>
                 <Row gutter={24}>
                     <Col span={3}>
-                        <div className="logo" />
+                        <div className="logo" >
+                            <img alt="logo" style={{width:'50px',height:'50px'}} src={ require("../../assets/logo.jpg")} />
+                        </div>
                     </Col>
-                    <Col span={17}>
+                    <Col span={18}>
                         <Menu
                             mode="horizontal"
                             defaultSelectedKeys={[menu[0].key]}
                             style={{
-                                lineHeight: '64px', color: '#fff',
-                                width: '500px',
-                                background: "#00796a"
+                                lineHeight: '64px',
+                                // width: '500px'
+                                background: "#fff"
                             }}
                         >
                             {
@@ -49,10 +51,10 @@ class CHeader extends Component {
                         </Menu>
                     </Col>
                     {/* 头像 */}
-                    <Col span={4}>
-                    {/* 站内信 */}
+                    <Col span={3}>
                         <div>
-                            {/* <Notice /> */}
+                    {/* 站内信 */}
+                            <Notice />
                             <User />
                         </div>    
                     </Col>

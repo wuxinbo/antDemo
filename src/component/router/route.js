@@ -40,6 +40,7 @@ class SubRoute extends Component {
                         )
                     })
                     }
+                    <Redirect from ={menu[0].path} to={menu[0].path+menu[0].children[0].path} />
                 </Switch>
             </Router>
         )
