@@ -9,9 +9,6 @@ import Notice from './Notice';
 const { Header } = Layout;
 
 class CHeader extends Component {
-    // constructor(props) {
-    //     super(props)
-    // }
     componentDidMount(){
 
     }
@@ -22,14 +19,15 @@ class CHeader extends Component {
     }
     render() {
         return (
-            <Header className="header" style={{background:'#fff'}}>
+            <Header className="header" style={{background:'#fff',padding:'0 12px' }}>
                 <Row gutter={24}>
                     <Col span={3}>
                         <div className="logo" >
                             <img alt="logo" style={{width:'50px',height:'50px'}} src={ require("../../assets/logo.jpg")} />
+                            {/* <span > */}
                         </div>
                     </Col>
-                    <Col span={18}>
+                    <Col span={17}>
                         <Menu
                             mode="horizontal"
                             defaultSelectedKeys={[menu[0].key]}
@@ -51,14 +49,12 @@ class CHeader extends Component {
                         </Menu>
                     </Col>
                     {/* 头像 */}
-                    <Col span={3}>
-                        <div>
+                    <Col span={4} style={{textAlign:'right'}}>
                     {/* 站内信 */}
                             <Notice />
                             <User />
-                        </div>    
                     </Col>
-                </Row>
+                 </Row>
             </Header>
         )
     }
