@@ -19,7 +19,6 @@ class SlideMenu extends Component {
     //自定义菜单，根据配置文件生成菜单
     CsubMenu() {
         const menu = this.props.menu
-        console.log("props.menu is "+menu)
         const Cmenu = <Menu
             mode="inline"
             style={{ height: '100%', borderRight: 0 }}

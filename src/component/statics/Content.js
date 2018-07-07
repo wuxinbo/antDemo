@@ -3,12 +3,14 @@ import DayOutPie from './DayOutPie'
 import MonthoutPie from './MonthOutPie'
 import WeekOutStatis from './WeekOutStatis'
 import OutSortOrder from './OutSortOrder'
+import Statictis from '../screen/Statictis'
 import { Row,Col } from 'antd';
 class Content extends Component {
     render() {
         return (
             <div>
-                <Row gutter={24}>
+                <Statictis />
+                <Row gutter={24} style={{paddingTop:20}}>
                     {/* 日出库比例 */}
                     <Col span={12} >
                         <DayOutPie />

@@ -4,10 +4,10 @@ import { View } from '@antv/data-set';
 import React, { Component } from 'react';
 const dv = new View();
 const data = [
-    { item: '电缆', count: 40 },
-    { item: '电线', count: 30 },
-    { item: '分装箱', count: 17 },
-    { item: '分接箱', count: 13 }
+    { item: '市政设施管理', count: 40 },
+    { item: '市容环境卫生管理', count: 30 },
+    { item: '城市供水节水管理', count: 17 },
+    { item: '园林绿化', count: 13 }
     
 ];
         dv.source(data).transform({
@@ -27,12 +27,12 @@ const data = [
 class DayOutPie extends Component {
     render(){
         return (
-            <Card title="日出库比例图" hoverable >
+            <Card title="每天新增案件比例图" hoverable >
             
             <Chart height={400} data={dv} scale={cols} padding={['10%', '28%']} forceFit >
                 <Coord type='theta' radius={0.75} />
                 <Axis name="percent" />
-                <Legend position='right'  />
+                <Legend position='bottom'  />
                 <Tooltip
                     showTitle={false}
                     itemTpl='<li><span style="background-color:{color};" class="g2-tooltip-marker"></span>{name}: {value}</li>'

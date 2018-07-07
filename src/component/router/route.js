@@ -33,7 +33,6 @@ class SubRoute extends Component {
             <Router history={history}>
                 <Switch>
                     {   menu.map (parent =>{
-                        // console.log("routepath is "+ {... parent.children})
                         return parent.children.map(item =>{
                             return <Route  key={item.key} exact path={parent.path+item.path} component={item.component} />
                         }

@@ -1,35 +1,46 @@
-
-const unReadMsg ={
-    key: "unRead",
-    title: "未读",
-    list:[
-        {
-            id:12,
-            date: "12小时前",
-            content: "你有一件案件需要审批"
-    }]
-}
-const ReadMsg ={
-    key:"read",
-    title: "已读",
-    list :[
-        {   id:12,
-            date: "10分钟前",
-            content: "案件号为000123的案件已审批"
-        }
-    ]
-}
+import { queryNotice } from "../api/Api";
+import {noticeData} from '../mock/api'
 export default {
     namespace: 'notice',
-    state: {
-        notice:[unReadMsg,ReadMsg]
+    state: noticeData,
+    effects:{
+        * queryNotice(action,{call,put}){
+            console.log("开始查询")
+            console.log("action is "+JSON.stringify(action))
+            yield put({type:"showLoading"})
+            // yield call(setTimeout(() => {
+                queryNotice()
+            // }, 2000));
+            yield put({type:"queryUnNotice",data:noticeData})
+        }
     },
     reducers:{
-        queryUnRead(state,action){
-            return state;
+        showLoading (state,action){
+            return {
+                notice: state.notice,
+                loading:true,
+                count:state.coune 
+            }
         },
-        queryReadMsg(state){
-            return state
+        queryUnNotice(state,action){
+            //计算 总的消息数
+            let totalCount = 0;
+
+            let newState ={};
+            newState =Object.assign(action.data,newState);
+            console.log("msg.title"+action.data.notice[0].title)
+            newState.notice.map( msg=>
+                 {
+                    msg.tab=msg.title+"("+msg.list.length+")"
+                    totalCount+=msg.list.length
+                    return msg;
+                 }
+            )
+            return {
+                notice: newState.notice,
+                loading:false,
+                count:totalCount
+            };
         }
      }  
 }

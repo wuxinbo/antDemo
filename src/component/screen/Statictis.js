@@ -2,7 +2,6 @@
 import { Row, Col, Card } from 'antd';
 import React, { Component } from 'react';
 import TweenOne from 'rc-tween-one';
-// import PropTypes from 'prop-types';
 import ChildrenPlugin from 'rc-tween-one/lib/plugin/ChildrenPlugin';
 import './Statictis.css'
 
@@ -41,19 +40,12 @@ class Statictis extends Component {
             const { outCountAnimation, inCountAnimation, outAmountAnimation, inAmountAnimation } = this.state
             const outCount = outCountAnimation.Children.value
             this.setState({
-                outCountAnimation: this.CountAnimation(outCount + 12),
-                inCountAnimation: this.CountAnimation(inCountAnimation.Children.value + 22),
+                outCountAnimation: this.CountAnimation(outCount + 2),
+                inCountAnimation: this.CountAnimation(inCountAnimation.Children.value + 3),
                 outAmountAnimation: this.AmountAnimation(outAmountAnimation.Children.value + 234),
                 inAmountAnimation: this.AmountAnimation(inAmountAnimation.Children.value + 321)
-                // {
-                //     Children: { value: outCountAnimation.Children.value+12, floatLength: 0, formatMoney: false },
-                //     duration: 2000
-                // },
-
-
-
             })
-        }, 1000 * 5)
+        }, 1000 * 10)
     }
     componentWillUnmount() {
         clearInterval(clock);
@@ -74,10 +66,10 @@ class Statictis extends Component {
         return (
             <Row gutter={24} >
                 <Col span={6}>
-                    <this.card title="日出库件数" animation={this.state.outCountAnimation} />
+                    <this.card title="日新增案件数" animation={this.state.outCountAnimation} />
                 </Col>
                 <Col span={6} >
-                    <this.card title="日入库件数" animation={this.state.inCountAnimation} />
+                    <this.card title="日剩余未处理件数" animation={this.state.inCountAnimation} />
                 </Col>
                 <Col span={6}>
                     <this.card title="日出库金额" animation={this.state.outAmountAnimation} />

@@ -4,22 +4,22 @@ import React, { Component } from 'react';
 //每天进件排名
 
 const data = [
-    { name: '绝缘棒', count: 35353 },
-    { name: '接线箱', count: 35243 },
-    { name: '胶布', count: 32357 },
-    { name: '铜芯线', count: 31895 },
-    { name: '电缆', count: 28552 },
-    { name: '镙钉', count: 25272 },
-    { name: '铜铝鼻', count: 24252 },
-    { name: '线夹', count: 23057 },
-    { name: '抓钉', count: 20380 },
-    { name: '电表', count: 15853 },
+    { name: '张三', count: 33 },
+    { name: '李四', count: 30 },
+    { name: '王五', count: 28 },
+    { name: '李达', count: 27 },
+    { name: '宋江', count: 26 },
+    { name: '武松', count: 23 },
+    { name: '吕峰', count: 21 },
+    { name: '张丹峰', count: 18 },
+    { name: '蓝雨', count: 15 },
+    { name: '吴龙', count: 7 },
 ]
 class OutSortOrder extends Component {
     render() {
         let index = 0
         return (
-            <Card title="出库数量排名" hoverable style={{height:'500px'}}>
+            <Card title="一周案件处理排名(件)" hoverable style={{height:'500px'}}>
                 {
                     data.map(item => {
                         index++

@@ -4,19 +4,19 @@ import { View } from '@antv/data-set';
 import React, { Component } from 'react';
 
 const data = [
-    { date: '2018-06-11', 出库: 215, 入库: 152 },
-    { date: '2018-06-12', 出库: 252, 入库: 170 },
-    { date: '2018-06-13', 出库: 265, 入库: 166 },
-    { date: '2018-06-14', 出库: 233, 入库: 142 },
-    { date: '2018-06-15', 出库: 183, 入库: 103 },
-    { date: '2018-06-16', 出库: 139, 入库: 66 },
-    { date: '2018-06-17', 出库: 96, 入库: 48 }
+    { date: '2018-06-11', 已处理: 21,未处理 : 12 },
+    { date: '2018-06-12', 已处理: 2,未处理 : 10 },
+    { date: '2018-06-13', 已处理: 25,未处理 : 16 },
+    { date: '2018-06-14', 已处理: 23,未处理 : 14 },
+    { date: '2018-06-15', 已处理: 13,未处理 : 10 },
+    { date: '2018-06-16', 已处理: 13,未处理 : 6 },
+    { date: '2018-06-17', 已处理: 6, 未处理: 8 }
 ];
 const dv = new View();
 
 dv.source(data).transform({
     type: 'fold',
-    fields: ['出库', '入库'], // 展开字段集
+    fields: ['已处理', '未处理'], // 展开字段集
     key: 'outOrIn', // key字段
     value: 'count', // value字段
 });
@@ -30,7 +30,7 @@ class WeekOutStatis extends Component {
     render() {
 
         return (
-        <Card title="一周出入库件数统计" hoverable style={{height:'500px'}}>
+        <Card title="一周已处理未处理件数统计" hoverable style={{height:'500px'}}>
             <Chart height={400} padding={['10%', '20%','20%','10%']} data={dv} scale={cols} forceFit>
                 <Legend />
                 <Axis name="date" />
