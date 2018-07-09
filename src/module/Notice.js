@@ -1,4 +1,4 @@
-import { queryNotice } from "../api/Api";
+// import { queryNotice } from "../api/Api";
 import {noticeData} from '../mock/api'
 export default {
     namespace: 'notice',
@@ -9,7 +9,7 @@ export default {
             console.log("action is "+JSON.stringify(action))
             yield put({type:"showLoading"})
             // yield call(setTimeout(() => {
-                queryNotice()
+                // queryNotice()
             // }, 2000));
             yield put({type:"queryUnNotice",data:noticeData})
         }

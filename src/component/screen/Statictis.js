@@ -15,8 +15,8 @@ class Statictis extends Component {
         this.state = {
             outCountAnimation: this.CountAnimation(10),
             inCountAnimation: this.CountAnimation(14),
-            outAmountAnimation: this.AmountAnimation(1000),
-            inAmountAnimation: this.AmountAnimation(1200)
+            outAmountAnimation: this.CountAnimation(50),
+            inAmountAnimation: this.CountAnimation(200)
         }
     }
     //进件数动画
@@ -42,10 +42,10 @@ class Statictis extends Component {
             this.setState({
                 outCountAnimation: this.CountAnimation(outCount + 2),
                 inCountAnimation: this.CountAnimation(inCountAnimation.Children.value + 3),
-                outAmountAnimation: this.AmountAnimation(outAmountAnimation.Children.value + 234),
-                inAmountAnimation: this.AmountAnimation(inAmountAnimation.Children.value + 321)
+                outAmountAnimation: this.CountAnimation(outAmountAnimation.Children.value + 4),
+                inAmountAnimation: this.CountAnimation(inAmountAnimation.Children.value + 10)
             })
-        }, 1000 * 10)
+        }, 1000 * 20)
     }
     componentWillUnmount() {
         clearInterval(clock);
@@ -72,10 +72,10 @@ class Statictis extends Component {
                     <this.card title="日剩余未处理件数" animation={this.state.inCountAnimation} />
                 </Col>
                 <Col span={6}>
-                    <this.card title="日出库金额" animation={this.state.outAmountAnimation} />
+                    <this.card title="每周已处理案件数" animation={this.state.outAmountAnimation} />
                 </Col>
                 <Col span={6}>
-                    <this.card title="日入库金额" animation={this.state.inAmountAnimation} />
+                    <this.card title="每月已处理案件数" animation={this.state.inAmountAnimation} />
                 </Col>
 
             </Row>

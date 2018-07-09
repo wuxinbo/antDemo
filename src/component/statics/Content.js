@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DayOutPie from './DayOutPie'
-import MonthoutPie from './MonthOutPie'
+import LawCard from "../law/card"
 import WeekOutStatis from './WeekOutStatis'
 import OutSortOrder from './OutSortOrder'
 import Statictis from '../screen/Statictis'
@@ -17,7 +17,7 @@ class Content extends Component {
                     </Col>
                     {/* 月出库数量 */}
                     <Col span={12} >
-                        <MonthoutPie />
+                        <LawCard />
                     </Col>
                 </Row>
                 <Row gutter={24} style ={{paddingTop:20}}>

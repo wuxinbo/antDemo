@@ -1,25 +1,31 @@
 import React, { Component } from 'react';
-import { Table } from 'antd';
+import { Table,Spin } from 'antd';
 import { connect } from 'dva';
 import SearchFrom from './SearchFrom';
 // 案件列表
 class List extends Component {
-    componentDidMount(){
-        this.props.dispatch({type:"cases/queryList"})
+    componentDidMount() {
+        this.props.dispatch({ type: "cases/queryList" })
     }
-    render(){
-        
+    render() {
+            console.log("tableList loading is "+JSON.stringify(this.props.loading))
         return (
             <div>
                 <SearchFrom />
-                <Table style={{paddingTop:"20px"}}
-                columns={this.props.columns}
-                bordered
-                dataSource={this.props.data}               
-                />
-            </div>    
+                <Spin spinning={this.props.loading.global} delay={2000}>
+                    <Table style={{ paddingTop: "20px" }}
+                        columns={this.props.columns}
+                        bordered
+                        dataSource={this.props.data}
+                    />
+                </Spin>
+            </div>
         )
     }
 }
-export default connect(({cases})=>({columns:cases.columns,data:cases.data}))(List)
+export default connect(({ cases,loading }) => ({
+     columns: cases.columns,
+     data: cases.data,
+     loading: loading
+     }))(List)
 

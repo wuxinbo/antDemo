@@ -14,26 +14,27 @@ class CHeader extends Component {
     }
     handleMenuClick(item) {
         this.props.dispatch({type:"menu/firstMenuClick",menu:item})
-        // console.log("item.path "+item.path)
         history.push(item.path+item.children[0].path)
     }
     render() {
         return (
             <Header className="header" style={{background:'#fff',padding:'0 12px' }}>
                 <Row gutter={24}>
-                    <Col span={3}>
+                    <Col span={5}>
                         <div className="logo" >
                             <img alt="logo" style={{width:'50px',height:'50px'}} src={ require("../../assets/logo.jpg")} />
-                            {/* <span > */}
+                            <span style={{marginLeft:"20px",fontSize:"20px"}}>合川市行政执法系统</span>
                         </div>
                     </Col>
-                    <Col span={17}>
+                    {/* <Col span={}>
+
+                    </Col> */}
+                    <Col span={15}>
                         <Menu
                             mode="horizontal"
                             defaultSelectedKeys={[menu[0].key]}
                             style={{
                                 lineHeight: '64px',
-                                // width: '500px'
                                 background: "#fff"
                             }}
                         >

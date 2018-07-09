@@ -1,6 +1,7 @@
 import {statis} from '../statics/Content'
 import CaseList from "../caseManage/list"
 import {outContent} from '../out/Content'
+import LawList from '../law/list'
 const menu =
     [
         {
@@ -59,6 +60,23 @@ const menu =
                 }
             ]
         },
+        {
+            key:"law",
+            name:"法律法规",
+            order: 3,
+            path: '/law',
+             children :[
+                {
+                    key: "/list",
+                    name: "列表",
+                    component :LawList,
+                    click: function(){
+
+                    },
+                    children:[]
+                }
+            ]
+        }, 
         {
             key:"statictis",
             name:"统计",
