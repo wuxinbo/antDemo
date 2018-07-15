@@ -1,8 +1,12 @@
 import {caseTableData} from '../mock/api'
+import { queryCaseList } from '../api/Api';
 /**
  * 数据过滤
  */
 function filterData(form){
+    if(form===undefined){
+        return caseTableData.data
+    }
     if(form.id===undefined&&form.caseSubject===undefined&&form.status===undefined){
         return caseTableData.data 
     }
@@ -42,11 +46,14 @@ function filterData(form){
 export default {
     namespace: "cases",
     state: {
-        columns: caseTableData.column,
-        data: caseTableData.data
+        columns: [],
+        data: []
     },
     effects:{
         *search(state,{put,call}){
+            // console.log("hello")
+            const data =queryCaseList();
+            console.log(data)
             let form=state.data;
             const filterAfterdata =yield call(filterData,form)
             yield put({type:"queryList",data:filterAfterdata})

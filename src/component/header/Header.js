@@ -13,8 +13,11 @@ class CHeader extends Component {
 
     }
     handleMenuClick(item) {
+        // console.log("menu is "+item.name)
         this.props.dispatch({type:"menu/firstMenuClick",menu:item})
-        history.push(item.path+item.children[0].path)
+        const fullPath=item.path+item.children[0].path
+        // console.log("fullpath is "+fullPath)
+        history.push(fullPath)
     }
     render() {
         return (
@@ -26,9 +29,6 @@ class CHeader extends Component {
                             <span style={{marginLeft:"20px",fontSize:"20px"}}>合川市行政执法系统</span>
                         </div>
                     </Col>
-                    {/* <Col span={}>
-
-                    </Col> */}
                     <Col span={15}>
                         <Menu
                             mode="horizontal"

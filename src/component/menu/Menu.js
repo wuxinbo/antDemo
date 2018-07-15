@@ -51,8 +51,9 @@ const menu =
             path: '/systemManage',
              children :[
                 {
-                    key: "userManage",
+                    key: "/userManage",
                     name: "用户管理",
+                    // path: ""
                     click: function(){
 
                     },
@@ -63,12 +64,13 @@ const menu =
         {
             key:"law",
             name:"法律法规",
-            order: 3,
+            order: 6,
             path: '/law',
              children :[
                 {
-                    key: "/list",
+                    key: "list",
                     name: "列表",
+                    path: "/list",
                     component :LawList,
                     click: function(){
 

@@ -5,14 +5,14 @@ import SearchFrom from './SearchFrom';
 // 案件列表
 class List extends Component {
     componentDidMount() {
-        this.props.dispatch({ type: "cases/queryList" })
+        this.props.dispatch({ type: "cases/search" })
     }
     render() {
             console.log("tableList loading is "+JSON.stringify(this.props.loading))
         return (
             <div>
                 <SearchFrom />
-                <Spin spinning={this.props.loading.global} delay={2000}>
+                <Spin spinning={this.props.loading} delay={2000}>
                     <Table style={{ paddingTop: "20px" }}
                         columns={this.props.columns}
                         bordered
@@ -26,6 +26,6 @@ class List extends Component {
 export default connect(({ cases,loading }) => ({
      columns: cases.columns,
      data: cases.data,
-     loading: loading
+     loading: loading.effects['cases/search']
      }))(List)
 
