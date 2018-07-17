@@ -5,6 +5,7 @@ import SearchFrom from './SearchFrom';
 // 案件列表
 class List extends Component {
     componentDidMount() {
+        console.log("props is "+JSON.stringify(this.props))
         this.props.dispatch({ type: "cases/search" })
     }
     render() {

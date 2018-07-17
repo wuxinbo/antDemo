@@ -52,8 +52,8 @@ export default {
     effects:{
         *search(state,{put,call}){
             // console.log("hello")
-            const data =queryCaseList();
-            console.log(data)
+            // const data =queryCaseList();
+            // console.log(data)
             let form=state.data;
             const filterAfterdata =yield call(filterData,form)
             yield put({type:"queryList",data:filterAfterdata})

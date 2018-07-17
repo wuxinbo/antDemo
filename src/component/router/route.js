@@ -4,7 +4,11 @@ import { Router, Switch, Route, Redirect } from 'dva/router'
 import createBrowserHistory from 'history/createBrowserHistory'
 import BasicLayout from '../../layout/BasicLayout'
 import menu from '../menu/Menu'
+import AuthRoute from '../Authenticated/AuthRoute'
+import Login from '../login';
 const history = createBrowserHistory()
+
+
 
 /**
  * 主路由
@@ -14,8 +18,9 @@ class CRoute extends Component {
         return (
             <Router history={history}>
                 <Switch>
+                    <Route path="/login" component={Login}/>
                     {
-                        menu.map(item =><Route key={item.key}  path={item.path} component={BasicLayout} />)
+                        menu.map(item =><AuthRoute key={item.key}  path={item.path} component={BasicLayout} />)
                     }
                     <Redirect from ="/" to={menu[0].path} />
                 </Switch>

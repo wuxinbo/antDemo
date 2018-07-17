@@ -2,6 +2,7 @@ import {statis} from '../statics/Content'
 import CaseList from "../caseManage/list"
 import {outContent} from '../out/Content'
 import LawList from '../law/list'
+// import BasicLayout from "../../layout/BasicLayout"
 const menu =
     [
         {
