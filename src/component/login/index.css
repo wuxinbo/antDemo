@@ -1,0 +1,10 @@
+#body{
+    background-image: url("../../assets/login-background.jpg");
+    height: 500px;
+    background-color: aquamarine
+}
+#loginForm{
+    padding: 112px 12px;
+    margin: 0 auto;
+    width: 368px
+}

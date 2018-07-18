@@ -10,7 +10,6 @@ class AuthRoute extends Component {
          return (
              <Route {...rest} render={props=>
                 {
-                    console.log("path is "+JSON.stringify(rest))
              return isAuthenticated?( <Component {...props} /> ):(<Redirect to={{
                  pathname:"/login",
                  state :{from :props.location}
