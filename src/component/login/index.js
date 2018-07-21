@@ -8,6 +8,11 @@ class Login extends Component{
     render(){
         return (
             <div id="body" >
+                {/* logo */}
+                <div>
+                    
+                </div>    
+                {/* 登录表单 */}
                 <LoginForm />
             </div>    
         ) 

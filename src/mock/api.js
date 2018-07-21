@@ -185,6 +185,19 @@ export const todoList={
     ]
 }
 /**
+ * 用户测试信息
+ */
+export const userInfo=[
+    {
+        username: "admin",
+        password: "888888"
+    },
+    {
+        username: "test",
+        password: "123456"
+    }
+]
+/**
  * 申请事项
  */
 export const applyList={

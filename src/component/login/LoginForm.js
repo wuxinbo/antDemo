@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import {Form,Input,Button} from "antd"
+import {Form,Input,Button,Icon} from "antd"
 //登录表单
 const FormItem = Form.Item
 class LoginForm extends Component {
@@ -12,21 +12,21 @@ class LoginForm extends Component {
                 <FormItem >
                     {
                        getFieldDecorator("username",{})(
-                           <Input placeholder="用户名"/>
+                           <Input prefix={<Icon type="user" />} placeholder="用户名"/>
                        ) 
                     }
                 </FormItem>    
                 <FormItem >
                     {
                        getFieldDecorator("password",{})(
-                           <Input placeholder="密码"/>
+                           <Input prefix={<Icon type="lock" />} type="password" placeholder="密码"/>
                        ) 
                     }
                 </FormItem> 
                 <FormItem >
                     {
                        (
-                           <Button type="primary">
+                           <Button type="primary" id="loginSubmit">
                                登录
                            </Button>    
                        ) 
