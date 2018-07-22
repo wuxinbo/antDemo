@@ -5,11 +5,11 @@ import SearchFrom from './SearchFrom';
 // 案件列表
 class List extends Component {
     componentDidMount() {
-        console.log("props is "+JSON.stringify(this.props))
+        // console.log("props is "+JSON.stringify(this.props))
         this.props.dispatch({ type: "cases/search" })
     }
     render() {
-            console.log("tableList loading is "+JSON.stringify(this.props.loading))
+            // console.log("tableList loading is "+JSON.stringify(this.props.loading))
         return (
             <div>
                 <SearchFrom />

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Redirect} from 'dva/router'
-import {history} from '../router/route'
+// import {history} from '../router/route'
 //授权路由
 //没有权限访问
 const isAuthenticated=true 

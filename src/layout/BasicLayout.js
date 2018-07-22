@@ -4,6 +4,7 @@ import SlideMenu from '../component/SlideMenu'
 import { Layout, Breadcrumb } from 'antd';
 import { SubRoute } from '../component/router/route'
 import { connect } from 'dva';
+
 const { Content, Footer } = Layout
 /**
  * 用户登录进去后有主菜单和左边菜单基础布局文件
@@ -11,6 +12,7 @@ const { Content, Footer } = Layout
 class BasicLayout extends Component {
 
   render() {
+        console.log ("layout is "+JSON.stringify(this.props))
     return (
       <Layout>
         <Header />
@@ -25,7 +27,7 @@ class BasicLayout extends Component {
               }
             </Breadcrumb>
             <Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 480, maxWidth: 2200 }}>
-              <SubRoute />
+              <SubRoute history={this.props.history} app={this.props.app}/>
             </Content>
             <Footer style={{ textAlign: 'center' }}>
               demo Design ©2018 Created by Ant
@@ -36,4 +38,4 @@ class BasicLayout extends Component {
     )
   }
 }
-export default connect(({ menu }) => ({ fullPath: menu.fullPath==null?[]:menu.fullPath }))(BasicLayout)
+export default connect(({ menu }) => ({ fullPath: menu.fullPath==null?[]:menu.fullPath}))(BasicLayout)

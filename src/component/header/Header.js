@@ -4,8 +4,9 @@ import React, { Component } from 'react';
 import menu from '../menu/Menu'
 import User from './User'
 import { connect } from 'dva';
-import { history } from '../router/route';
+
 import Notice from './Notice';
+import app from '../..';
 const { Header } = Layout;
 
 class CHeader extends Component {
@@ -17,7 +18,7 @@ class CHeader extends Component {
         this.props.dispatch({type:"menu/firstMenuClick",menu:item})
         const fullPath=item.path+item.children[0].path
         // console.log("fullpath is "+fullPath)
-        history.push(fullPath)
+        app._history.push(fullPath)
     }
     render() {
         return (

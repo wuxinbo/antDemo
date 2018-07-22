@@ -2,7 +2,7 @@
 import { Layout, Menu, Icon } from 'antd';
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { history } from './router/route';
+import app from ".."
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
@@ -29,7 +29,7 @@ class SlideMenu extends Component {
                     return (
                         <SubMenu key={item.key} title={<span><Icon type={item.icon} />{item.name}</span>} 
                             onTitleClick={()=>{
-                                history.push(menu.path+item.path)
+                                app._history.push(menu.path+item.path)
                                 this.props.dispatch({type:"menu/breadcrumb",parentPath:menu.name,currentPath:item.name})
                             }}
                             >

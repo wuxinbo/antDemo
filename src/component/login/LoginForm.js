@@ -12,14 +12,14 @@ class LoginForm extends Component {
                 <FormItem >
                     {
                        getFieldDecorator("username",{})(
-                           <Input prefix={<Icon type="user" />} placeholder="用户名"/>
+                           <Input prefix={<Icon type="user" />} placeholder={this.props.placeholderUserName}/>
                        ) 
                     }
                 </FormItem>    
                 <FormItem >
                     {
                        getFieldDecorator("password",{})(
-                           <Input prefix={<Icon type="lock" />} type="password" placeholder="密码"/>
+                           <Input prefix={<Icon type="lock" />} type="password" placeholder={this.props.placeholderPwd}/>
                        ) 
                     }
                 </FormItem> 

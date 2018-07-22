@@ -4,9 +4,7 @@ import BasicLayout from './layout/BasicLayout'
 class App extends Component {
   render() {
     return (
-      // <Provider store={StateStore}>
         <BasicLayout />
-      // </Provider>
     );
   }
 }
